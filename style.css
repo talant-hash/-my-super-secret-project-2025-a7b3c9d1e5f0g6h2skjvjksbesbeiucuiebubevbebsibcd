@@ -1,0 +1,184 @@
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ff8edf;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Навигация */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Для горизонтального размещения ссылок на десктопе */
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #ffc107; /* Желтый при наведении */
+}
+
+/* Кнопка меню для мобильных устройств (по умолчанию скрыта на десктопе) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #f7c2f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.person-card {
+    display: flex;
+    flex-direction: column; /* Изменено: элементы в колонку */
+    align-items: center; /* Изменено: центрируем по горизонтали */
+    gap: 20px; /* Уменьшен отступ между фото и текстом */
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center; /* Центрируем текст внутри карточки */
+    background-color: #ffc8f8;
+}
+
+.person-card:last-of-type {
+    border-bottom: none; /* Убираем границу у последнего блока */
+}
+
+.person-photo {
+    width: 250px; /* Фиксированная ширина фото на десктопе */
+    height: 250px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезка фото, чтобы оно помещалось в рамку */
+    border-radius: 50%; /* Круглое фото */
+    border: 4px solid #ffc107; /* Желтая рамка */
+    flex-shrink: 0; /* Не сжимать фото */
+    margin-bottom: 10px; /* Добавлен небольшой отступ под фото */
+}
+
+.person-card h2 {
+    color: #007bff; /* Синий заголовок */
+    margin-top: 0;
+}
+
+.person-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.person-card ul li {
+    margin-bottom: 5px;
+}
+
+.about-section {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* --- Адаптация для мобильных устройств (Media Queries) --- */
+@media (max-width: 768px) {
+    /* Навигация для мобильных */
+    .menu-toggle {
+        display: block; /* Показываем кнопку-гамбургер */
+    }
+
+    .nav-list {
+        display: none; /* Скрываем список ссылок по умолчанию */
+        flex-direction: column;
+        width: 100%;
+        background-color: #444;
+        position: absolute;
+        top: 60px; /* Отступ от хедера */
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-list.active {
+        display: flex; /* Показываем список, когда он активен (открыт) */
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    /* Карточки людей для мобильных */
+    .person-card {
+        flex-direction: column; /* Элементы в колонку: фото сверху, текст снизу */
+        align-items: center; /* Центрируем содержимое */
+        text-align: center;
+    }
+
+    .person-photo {
+        width: 180px; /* Меньший размер фото на мобильных */
+        height: 180px;
+        margin-bottom: 20px; /* Отступ под фото */
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов (опционально) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .person-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
